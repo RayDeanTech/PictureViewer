@@ -16,5 +16,51 @@ namespace PictureViewer
         {
             InitializeComponent();
         }
+
+        private void showButton_Click(object sender, EventArgs e)
+        {
+            // open the File dialog, yhou know if you want, or whatever.
+            // if the end-user click OK, or whatever, load the thingy they choose, mmm k?
+            if(openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                pictureBox1.Load(openFileDialog1.FileName);
+            }
+        }
+
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            // like, clear the image, or whatever.
+            pictureBox1.Image = null;
+        }
+
+        private void backgroundButton_Click(object sender, EventArgs e)
+        {
+            // like show the color dialog box, or whatever.
+            // if the end-user click OK, change the 
+            // PictureBox control's background to the color they set, mmmmk?
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                pictureBox1.BackColor = colorDialog1.Color;
+            };
+
+        }
+
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            // like, close the form, or whatever
+            this.Close();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+            else
+            {
+                pictureBox1.SizeMode = PictureBoxSizeMode.Normal;
+            };
+        }
     }
 }
